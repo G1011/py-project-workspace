@@ -1,0 +1,53 @@
+# 微信机器人配置
+wechat:
+  login_timeout: 300
+  enable_cmd_qr: true
+  hot_reload: true
+
+# 文件处理配置
+file_processing:
+  upload_dir: "uploads"
+  output_dir: "outputs"
+  max_file_size: 50  # MB
+  supported_formats:
+    word: [".doc", ".docx"]
+    pdf: [".pdf"]
+    image: [".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tiff"]
+  
+# 定时任务配置
+scheduler:
+  timezone: "Asia/Shanghai"
+  max_jobs: 100
+  
+# 新闻推送配置
+news:
+  sources:
+    - "https://www.jrj.com.cn/"
+    - "https://finance.sina.com.cn/"
+    - "https://www.10jqka.com.cn/"
+  keywords:
+    - "金融"
+    - "股市"
+    - "基金"
+    - "理财"
+    - "投资"
+  max_news_count: 5
+  
+# 日志配置
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} - {message}"
+  file: "logs/wechat_bot.log"
+  
+# 数据库配置
+database:
+  path: "data/wechat_bot.db"
+  
+# 插件配置
+plugins:
+  enabled:
+    - "file_converter"
+    - "scheduler"
+    - "news_pusher"
+    - "help"
+  auto_reload: true 
